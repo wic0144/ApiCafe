@@ -1,4 +1,5 @@
 const express = require('express')
+const { post } = require('got')
 const path = require('path')
 const PORT = process.env.PORT || 5000
 
@@ -8,3 +9,10 @@ express()
   .set('view engine', 'ejs')
   .get('/', (req, res) => res.render('pages/index'))
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
+  .post('/username/:usr', (req, res) => {
+    var usr_val = req.params.usr //ตัวแปรที่เก็บค่า username
+    res.writeHead(200, { 'Content-Type': 'text/html' });
+    res.write("post value /username/" + usr_val)
+    res.end()
+    })
+    
