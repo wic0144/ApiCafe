@@ -10,7 +10,7 @@ express()
   .get('/', (req, res) => res.render('pages/index'))
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
   .post('/username/:usr', (req, res) => {
-    var usr_val = req.params.usr //ตัวแปรที่เก็บค่า username
+    var usr_val = req.params.usr //ตัวแปรที่เก็บค่า usernames
     res.writeHead(200, { 'Content-Type': 'text/html' });
     res.write("post value /username/" + usr_val)
     res.end()
